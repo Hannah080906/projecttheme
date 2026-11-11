@@ -1,0 +1,20 @@
+/*
+ * Constants
+ *
+ * Keep colors and reusable theme values here.
+ */
+:root {
+  --theme-color-primary: #BB438D;
+  --theme-color-secondary:#ffd400;
+  --theme-color-tertiary:#bdba34;
+  --theme-color-accent:#db4d26;
+  --theme-color-body:#272f22;
+  --theme-color-body2:#4b0029;
+
+
+  --theme-font-one: "futura-pt",Arial,sans-serif;
+  --theme-font-two: "futura-pt-bold",Arial,sans-serif;
+  --theme-font-three: "norman-variable",Arial,sans-serif;
+}
+
+

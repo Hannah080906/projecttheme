@@ -1,0 +1,64 @@
+/*
+ * Typography
+ */
+html,
+body {
+  color:black;
+  font-family: var(--theme-font-one);
+  font-size: var(--theme-font-size-base);
+  line-height: var(--theme-font-size-base);
+}
+
+
+
+h1 {
+  font-family: var(--theme-font-three);
+  font-weight: 400;
+  line-height: var(--theme-line-height-heading);
+}
+h2 {
+  font-family: var(--theme-font-three);
+  font-weight: 600;
+  line-height: var(--theme-line-height-heading);
+}
+
+h3{
+  font-family: var(--theme-font-two);
+  font-weight: 600;
+  line-height: var(--theme-line-height-heading);
+}
+
+h4 {
+  font-family: var(--theme-font-two);
+  font-weight: 700;
+  line-height: var(--theme-line-height-heading);
+}
+
+h5 {
+  font-family: var(--theme-font-two);
+  font-weight: 350;
+  line-height: var(--theme-line-height-heading);
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.intro-kicker {
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.intro-title {
+  line-height: 1.1;
+}
+
+.intro-text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
