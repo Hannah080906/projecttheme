@@ -2,19 +2,45 @@
  * Constants
  *
  * Keep colors and reusable theme values here.
+ * Werte stammen aus dem Figma-File "Design System – UX/UI Design".
  */
 :root {
-  --theme-color-primary: #BB438D;
-  --theme-color-secondary:#ffd400;
-  --theme-color-tertiary:#bdba34;
-  --theme-color-accent:#db4d26;
-  --theme-color-body:#272f22;
-  --theme-color-body2:#4b0029;
+  /* Farben (Figma-Variablen) */
+  --theme-color-primary: #bb438d;      /* primary */
+  --theme-color-secondary: #ffd400;    /* primary-02 */
+  --theme-color-tertiary: #bdba34;     /* secondary */
+  --theme-color-accent: #db4d26;       /* secondary-02 */
+  --theme-color-body: #272f22;         /* background-02 */
+  --theme-color-body2: #4b0029;        /* background */
+  --theme-color-contact-text: #ffdb26;
+  --theme-color-placeholder: rgba(0, 0, 0, 0.54);
 
+  /* Schriften (Adobe Fonts Kit ysz4jhb) */
+  --theme-font-one: "futura-pt", "Futura", Arial, sans-serif;
+  --theme-font-two: "futura-pt-bold", "futura-pt", "Futura", Arial, sans-serif;
+  --theme-font-three: "norman-variable", "Didot", Georgia, serif;
 
-  --theme-font-one: "futura-pt",Arial,sans-serif;
-  --theme-font-two: "futura-pt-bold",Arial,sans-serif;
-  --theme-font-three: "norman-variable",Arial,sans-serif;
+  /* Typo-Skala (Desktop-Werte aus Figma, auf Mobile kleiner) */
+  --theme-tracking: -0.011em;
+  --theme-fs-hero: 20vw;
+  --theme-fs-h1: clamp(3rem, 2.25rem + 2vw, 4rem);          /* 48 → 64 */
+  --theme-fs-h2: 3rem;                                       /* 48 */
+  --theme-fs-quote: clamp(1.25rem, 0.75rem + 1.5vw, 2.25rem); /* 20 → 36 */
+  --theme-fs-h3: 1.5rem;                                     /* 24 */
+  --theme-fs-body: 1.25rem;                                  /* 20 */
+  --theme-fs-nav: 1.5rem;                                    /* 24 */
+
+  /* Abstände */
+  --theme-gutter: 30px;
+  --theme-section-y: 60px;
+  --theme-radius: 10px;
+
+  --theme-transition: all 0.2s ease-in-out;
 }
 
-
+@media (min-width: 992px) {
+  :root {
+    --theme-gutter: 65px;
+    --theme-section-y: 120px;
+  }
+}

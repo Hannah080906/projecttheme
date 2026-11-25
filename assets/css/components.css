@@ -5,11 +5,139 @@
   display: block;
 }
 
-/*** Button ***/
+/*** Hero ***
+ * Figma: Bild 1438×620, Schriftzug Norman Regular gelb,
+ * Annotation: "the font should ALWAYS fill the screen".
+ */
+.hero__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  aspect-ratio: 375 / 273;
+  background-color: var(--theme-color-body2);
+}
+
+@media (min-width: 768px) {
+  .hero__media {
+    aspect-ratio: 1438 / 620;
+  }
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__title {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  color: var(--theme-color-secondary);
+  font-family: var(--theme-font-three);
+  font-size: var(--theme-fs-hero);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.011em;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*** Buttons ***
+ * Figma: "Button Primary" – 50px hoch, 30px seitlich, Radius 10px,
+ * Futura PT Book 20px weiß. Default Aubergine, Variante Pink.
+ */
+.gd-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  height: 50px;
+  padding: 0 30px;
+  border: 0;
+  border-radius: var(--theme-radius);
+  background-color: var(--theme-color-body2);
+  color: white;
+  font-family: var(--theme-font-one);
+  font-size: var(--theme-fs-body);
+  font-weight: 400;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.gd-button:hover,
+.gd-button:focus-visible {
+  color: white;
+  background-color: var(--theme-color-primary);
+}
+
+.gd-button--pink {
+  background-color: var(--theme-color-primary);
+}
+
+.gd-button--pink:hover,
+.gd-button--pink:focus-visible {
+  background-color: var(--theme-color-body2);
+}
+
+.gd-button--olive {
+  padding: 0 50px;
+  background-color: var(--theme-color-tertiary);
+}
+
+.gd-button--olive:hover,
+.gd-button--olive:focus-visible,
+.gd-button--olive.is-active {
+  background-color: var(--theme-color-body2);
+}
+
+/*** Suchfeld ***
+ * Figma: weiß, 3px Rahmen Aubergine, Radius 10px, Futura PT Light 20px.
+ */
+.gd-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 19px;
+}
+
+.gd-search__input {
+  width: 316px;
+  max-width: 100%;
+  height: 51px;
+  padding: 0 17px;
+  border: 3px solid var(--theme-color-body2);
+  border-radius: var(--theme-radius);
+  background: white;
+  color: black;
+  font-family: var(--theme-font-one);
+  font-size: var(--theme-fs-body);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: var(--theme-tracking);
+}
+
+.gd-search__input::placeholder {
+  color: var(--theme-color-placeholder);
+}
+
+.gd-search__input:focus {
+  border-color: var(--theme-color-primary);
+}
+
+/*** Bootstrap-Buttons (Styleguide) ***/
 
 .btn-primary,
 .btn-secondary {
-  border-radius: 0.75rem;
+  border-radius: var(--theme-radius);
   padding: 0.75rem 1.5rem;
 }
 
@@ -22,7 +150,6 @@
   background-color: var(--theme-color-secondary);
   color: white;
 }
-
 
 /*** Image Slider ***/
 

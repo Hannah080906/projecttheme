@@ -1,4 +1,5 @@
 import './menu.js';
+import './hero.js';
 
 class General {
 	constructor() {

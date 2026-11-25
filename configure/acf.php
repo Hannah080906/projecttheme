@@ -45,3 +45,42 @@ add_filter('acf/settings/load_json', function($paths) {
 
     return $paths;
 });
+
+/**
+ * Beschriftung eines ACF-Link-Felds aufbereiten:
+ * HTML-Entities dekodieren und "->" durch einen echten Pfeil ersetzen (Figma: "→").
+ */
+function gd_link_label($link, $fallback = '') {
+    $label = is_array($link) && !empty($link['title']) ? $link['title'] : $fallback;
+    $label = html_entity_decode($label, ENT_QUOTES, 'UTF-8');
+    $label = preg_replace('/\s*-+>\s*$/u', ' →', $label);
+    return trim($label);
+}
+
+/**
+ * Gibt einen Link als Figma-"Button Primary" aus.
+ * $variant: '' (Aubergine), 'pink' oder 'olive'.
+ */
+function gd_button($link, $fallback = '', $variant = '') {
+    if (!is_array($link) || empty($link['url'])) {
+        return;
+    }
+    $classes = 'gd-button' . ($variant ? ' gd-button--' . $variant : '');
+    $target  = !empty($link['target']) ? $link['target'] : '_self';
+    printf(
+        '<a class="%1$s" href="%2$s" target="%3$s"%4$s>%5$s</a>',
+        esc_attr($classes),
+        esc_url($link['url']),
+        esc_attr($target),
+        $target === '_blank' ? ' rel="noopener"' : '',
+        esc_html(gd_link_label($link, $fallback))
+    );
+}
+
+/**
+ * Überschrift nach einem Komma umbrechen ("your city,<br>your people.") – wie in Figma.
+ */
+function gd_title_with_breaks($title) {
+    $parts = array_map('esc_html', preg_split('/,\s+/u', trim($title)));
+    return implode(',<br>', $parts);
+}

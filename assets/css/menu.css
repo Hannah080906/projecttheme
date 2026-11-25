@@ -1,5 +1,6 @@
 /*
  * Menus
+ * Figma: Futura PT Book 24px, Abstand 45px, aktive Seite Futura PT Bold.
  */
 .menu-toggle {
   display: none;
@@ -10,60 +11,58 @@
 }
 
 #site-navigation .main-menu {
-  list-style: none;
   display: flex;
-  padding: 0;
+  align-items: center;
+  gap: 45px;
   margin: 0;
-  gap: 20px;
+  padding: 0;
+  list-style: none;
+  font-size: var(--theme-fs-nav);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+#site-navigation .main-menu li a {
+  transition: color 0.2s ease-in-out;
+}
+
+#site-navigation .main-menu li.current-menu-item > a,
+#site-navigation .main-menu li.current_page_item > a {
+  font-weight: 700;
 }
 
 #site-navigation .main-menu li a:hover,
-#menu-footer li a:hover {
+.site-footer__menu a:hover {
   color: var(--theme-color-primary);
-  transition: color 0.3s ease-in-out;
 }
 
-#menu-footer {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  gap: 20px;
+/* Tablet: etwas enger, damit alles in eine Zeile passt */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #site-navigation .main-menu {
+    gap: 28px;
+    font-size: 1.25rem;
+  }
 }
 
-@media (max-width: 767px) {
-    #site-navigation {
-        position: absolute;
-        top: 0;
-        right: 0;
-      width: 100%;
-      pointer-events: none;
-    }
-
-    #site-navigation.is-open {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: white;
+/* Mobile: Burger-Menü */
+@media (max-width: 991px) {
+  #site-navigation {
+    position: static;
   }
 
   .menu-toggle {
+    position: relative;
+    z-index: 101;
     display: flex;
-    pointer-events: all;
-    margin-left: auto;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
     border: 0;
     background: transparent;
     color: inherit;
     cursor: pointer;
-    padding: 0.5rem;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    z-index: 100;
   }
 
   .menu-toggle-label {
@@ -81,8 +80,8 @@
   .menu-toggle-icon {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    width: 1.75rem;
+    gap: 7px;
+    width: 30px;
   }
 
   .menu-toggle-icon span {
@@ -94,7 +93,7 @@
   }
 
   .menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(1) {
-    transform: translateY(0.5rem) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
   }
 
   .menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(2) {
@@ -102,31 +101,38 @@
   }
 
   .menu-toggle[aria-expanded="true"] .menu-toggle-icon span:nth-child(3) {
-    transform: translateY(-0.5rem) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
   }
 
   #site-navigation .main-menu-container {
-    width: 100%;
-    top: -20rem;
-    transition: top 0.3s ease-in-out;
-    position: relative;
-    pointer-events: all;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0 var(--theme-gutter) 40px;
+    background: white;
+    border-bottom: 3px solid var(--theme-color-body2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0.2s;
   }
 
   #site-navigation.is-open .main-menu-container {
-    padding: 2rem 0 4rem;
-    top: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 
   #site-navigation .main-menu {
     flex-direction: column;
+    align-items: flex-start;
     gap: 0;
-    padding-top: 1rem;
   }
 
   #site-navigation .main-menu li a {
     display: block;
-    padding: 0.75rem 0;
-    text-align: center;
+    padding: 0.5rem 0;
   }
 }

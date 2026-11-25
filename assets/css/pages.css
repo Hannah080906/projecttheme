@@ -1,5 +1,594 @@
 /*
  * Pages
  *
- * Add page-specific theme styles here.
+ * GrazDoing-Seitenmodule, umgesetzt nach Figma ("Screens"):
+ * Desktop 1440px (seitlich 65px, Sektionen 120px oben/unten),
+ * Mobile 375px (seitlich 30px, Sektionen 60px oben/unten).
  */
+
+/* ---------- Grundgerüst ---------- */
+
+.gd-section {
+  padding: var(--theme-section-y) var(--theme-gutter);
+}
+
+.gd-section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.gd-section h2 {
+  color: var(--theme-color-body2);
+}
+
+.gd-dark {
+  background-color: var(--theme-color-body);
+  color: white;
+}
+
+.gd-dark h2 {
+  color: white;
+}
+
+/* ---------- Top ("your city, your people.") ---------- */
+
+.gd-top {
+  position: relative;
+  overflow: hidden;
+  padding: 60px var(--theme-gutter);
+  background-color: var(--theme-color-body2);
+  color: white;
+}
+
+@media (min-width: 992px) {
+  .gd-top {
+    padding: 80px var(--theme-gutter);
+  }
+}
+
+.gd-top__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.gd-top__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.gd-top__title {
+  color: white;
+  font-size: var(--theme-fs-h1);
+  line-height: 1.3;
+}
+
+@media (min-width: 992px) {
+  .gd-top__title {
+    line-height: 1.5;
+  }
+}
+
+.gd-top__text {
+  font-size: var(--theme-fs-quote);
+  line-height: 1;
+}
+
+.gd-top__text p {
+  margin: 0;
+}
+
+/* ---------- What are you looking for? ---------- */
+
+.gd-looking__title {
+  max-width: 760px;
+}
+
+/* ---------- Find your vibe ---------- */
+
+.gd-vibe {
+  background-color: var(--theme-color-primary);
+}
+
+.gd-vibe .gd-section__inner {
+  align-items: stretch;
+  gap: 60px;
+}
+
+.gd-section.gd-vibe h2 {
+  color: var(--theme-color-secondary);
+  text-align: center;
+}
+
+.gd-vibe__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .gd-vibe__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(30px, 4.2vw, 60px);
+  }
+}
+
+.gd-vibe__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  aspect-ratio: 313 / 240;
+  border-radius: var(--theme-radius);
+  background-color: var(--theme-color-body2);
+}
+
+@media (min-width: 768px) {
+  .gd-vibe__card {
+    aspect-ratio: 624 / 370;
+  }
+}
+
+.gd-vibe__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+}
+
+a.gd-vibe__card:hover .gd-vibe__image {
+  transform: scale(1.04);
+}
+
+.gd-vibe__label {
+  position: relative;
+  color: var(--theme-color-secondary);
+  font-family: var(--theme-font-two);
+  font-size: clamp(2.25rem, 1.5rem + 2.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.5;
+  text-shadow: 0 4px 20px black;
+}
+
+/* ---------- Comming up in graz ---------- */
+
+.gd-coming__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .gd-coming__inner {
+    gap: 60px;
+    padding: 8px 135px 0;
+  }
+}
+
+.gd-coming__title {
+  padding: 0 35px;
+}
+
+@media (min-width: 992px) {
+  .gd-coming__title {
+    padding: 0;
+  }
+}
+
+.gd-coming__item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .gd-coming__item {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 49px;
+  }
+}
+
+.gd-coming__media {
+  overflow: hidden;
+  aspect-ratio: 313 / 195.6;
+  border-radius: var(--theme-radius);
+  background-color: #f1eee9;
+}
+
+@media (min-width: 768px) {
+  .gd-coming__media {
+    width: min(100%, 400px);
+    aspect-ratio: 400 / 250;
+  }
+}
+
+.gd-coming__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gd-coming__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .gd-coming__content {
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 60px 0;
+  }
+}
+
+.gd-coming__date {
+  font-size: var(--theme-fs-h3);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.gd-coming__name,
+.gd-coming__text {
+  font-size: var(--theme-fs-body);
+  line-height: 1.3;
+}
+
+.gd-coming__text p {
+  margin: 0;
+}
+
+/* ---------- Submit event (Startseite) / Submit your event ---------- */
+
+.gd-submit__text {
+  font-size: var(--theme-fs-body);
+  line-height: 1.3;
+}
+
+.gd-submit__text p {
+  margin: 0;
+}
+
+@media (min-width: 992px) {
+  .gd-submit--compact {
+    padding: 87px 73px;
+  }
+}
+
+/* ---------- Whats happening? (Discover) ---------- */
+
+.gd-happening__filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.gd-happening__filters .gd-button {
+  min-width: 169px;
+}
+
+@media (min-width: 768px) {
+  .gd-happening__filters {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .gd-happening__filters .gd-button {
+    min-width: 0;
+  }
+}
+
+.gd-happening__image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--theme-radius);
+}
+
+.gd-search__input--short {
+  width: 213px;
+}
+
+@media (max-width: 767px) {
+  .gd-happening .gd-search {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Events (Discover) ---------- */
+
+.gd-events {
+  background-color: var(--theme-color-tertiary);
+  color: white;
+}
+
+.gd-events .gd-section__inner {
+  align-items: stretch;
+}
+
+.gd-section.gd-events h2 {
+  color: white;
+}
+
+.gd-events__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .gd-events__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(40px, 10vw, 145px);
+    row-gap: 30px;
+  }
+}
+
+.gd-events__item {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.gd-events__media {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 581.5 / 339.5;
+  border-radius: var(--theme-radius);
+}
+
+.gd-events__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+}
+
+a.gd-events__media:hover .gd-events__image {
+  transform: scale(1.04);
+}
+
+.gd-events__content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.gd-events__date {
+  font-family: var(--theme-font-three);
+  font-size: var(--theme-fs-h2);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.gd-events__info {
+  font-size: var(--theme-fs-body);
+  line-height: 1.3;
+}
+
+/* Leerzeile zwischen den Infos wie in Figma */
+.gd-events__info p {
+  margin: 0 0 1.3em;
+}
+
+.gd-events__info p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Event details ---------- */
+
+.gd-detail {
+  background-color: var(--theme-color-accent);
+  color: white;
+  text-align: center;
+}
+
+.gd-detail__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .gd-detail__inner {
+    gap: 60px;
+  }
+}
+
+.gd-detail__image {
+  display: block;
+  width: min(100%, 636px);
+  aspect-ratio: 636 / 424;
+  object-fit: cover;
+  border-radius: var(--theme-radius);
+}
+
+@media (max-width: 767px) {
+  .gd-detail__image {
+    width: min(100%, 279px);
+  }
+}
+
+.gd-detail__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: min(100%, 502px);
+  padding: 14px 0;
+}
+
+@media (min-width: 992px) {
+  .gd-detail__content {
+    padding: 58px 0;
+  }
+}
+
+.gd-section.gd-detail h2 {
+  color: white;
+}
+
+.gd-detail__meta {
+  font-size: var(--theme-fs-h3);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.gd-detail__text {
+  font-size: var(--theme-fs-body);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.gd-detail__text p {
+  margin: 0;
+}
+
+/* ---------- Pictures (About) ---------- */
+
+.gd-pictures {
+  padding: 60px var(--theme-gutter);
+  background: white;
+}
+
+.gd-pictures__title {
+  margin-bottom: 30px;
+  color: var(--theme-color-body2);
+}
+
+.gd-pictures__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .gd-pictures__grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.gd-pictures__item {
+  margin: 0;
+  overflow: hidden;
+  width: min(100%, 253px);
+  aspect-ratio: 1;
+  border-radius: var(--theme-radius);
+}
+
+@media (min-width: 768px) {
+  .gd-pictures__item {
+    width: 200px;
+    aspect-ratio: 200 / 300;
+  }
+
+  .gd-pictures__item:nth-child(3n + 2) {
+    width: 225px;
+    aspect-ratio: 225 / 300;
+  }
+}
+
+.gd-pictures__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Contact (About) ---------- */
+
+.gd-contact {
+  background: var(--theme-color-primary);
+  color: var(--theme-color-contact-text);
+}
+
+.gd-contact .gd-section__inner {
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .gd-contact .gd-section__inner {
+    gap: 60px;
+  }
+}
+
+.gd-section.gd-contact h2 {
+  color: var(--theme-color-secondary);
+}
+
+.gd-contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+  font-size: var(--theme-fs-body);
+  line-height: 1.3;
+}
+
+.gd-contact__details a:hover {
+  color: white;
+}
+
+.gd-contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: var(--theme-fs-body);
+}
+
+.gd-contact__links a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* ---------- Ältere Module (Menü / Footer als Seitenmodul) ---------- */
+
+.home-module {
+  padding: var(--theme-section-y) 0;
+}
+
+.home-module--dark {
+  background: var(--theme-color-body2);
+  color: #fff;
+}
+
+.home-module__title {
+  margin-bottom: 2rem;
+}
+
+.home-module__intro {
+  max-width: 42rem;
+  font-size: var(--theme-fs-body);
+  line-height: 1.35;
+}
+
+.home-module__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.home-module__button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid currentColor;
+  border-radius: var(--theme-radius);
+}

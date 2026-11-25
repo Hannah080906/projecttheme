@@ -3,41 +3,59 @@
  */
 html,
 body {
-  color:black;
+  color: black;
   font-family: var(--theme-font-one);
-  font-size: var(--theme-font-size-base);
-  line-height: var(--theme-font-size-base);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: var(--theme-tracking);
 }
 
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  letter-spacing: var(--theme-tracking);
+}
 
 h1 {
   font-family: var(--theme-font-three);
-  font-weight: 400;
-  line-height: var(--theme-line-height-heading);
-}
-h2 {
-  font-family: var(--theme-font-three);
-  font-weight: 600;
-  line-height: var(--theme-line-height-heading);
+  font-size: var(--theme-fs-h1);
+  font-weight: 700;
+  line-height: 1.3;
 }
 
-h3{
+h2 {
+  font-family: var(--theme-font-three);
+  font-size: var(--theme-fs-h2);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h3 {
   font-family: var(--theme-font-two);
-  font-weight: 600;
-  line-height: var(--theme-line-height-heading);
+  font-size: var(--theme-fs-h3);
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 h4 {
   font-family: var(--theme-font-two);
   font-weight: 700;
-  line-height: var(--theme-line-height-heading);
+  line-height: 1.3;
 }
 
 h5 {
-  font-family: var(--theme-font-two);
-  font-weight: 350;
-  line-height: var(--theme-line-height-heading);
+  font-family: var(--theme-font-one);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
 }
 
 a,
@@ -46,6 +64,17 @@ a:focus,
 a:active {
   color: inherit;
   text-decoration: none;
+}
+
+/* Figma-Textstile als Hilfsklassen */
+.text-body {
+  font-size: var(--theme-fs-body);
+  line-height: 1.3;
+}
+
+.text-quote {
+  font-size: var(--theme-fs-quote);
+  line-height: 1;
 }
 
 .intro-kicker {

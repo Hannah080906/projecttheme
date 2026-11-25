@@ -12,7 +12,12 @@
 }
 
 #content {
-  min-height: 100vh;
+  min-height: 50vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 body{
